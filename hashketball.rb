@@ -122,7 +122,8 @@ def all_players
 end
 
 def find_player(player_name)
-  all_players.find do |player_name|[:players]
+  all_players.find do |player_hash|
+    player_name == player_hash[:players]
 end
 
 def num_points_scored(player_name)
