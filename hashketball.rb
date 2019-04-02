@@ -122,7 +122,7 @@ def all_players
 end
 
 def find_player(player_name)
-  all_players[:players]
+  all_players.find do |player_name|[:players]
 end
 
 def num_points_scored(player_name)
