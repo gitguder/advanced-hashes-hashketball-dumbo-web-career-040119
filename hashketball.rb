@@ -117,12 +117,20 @@ def game_hash
   }
 end
 
+def all_players
+  game_hash[:home][:players].merge(game_hash[:away][:players])
+end
+
+def find_player(player_name)
+  all_players[:players]
+end
+
 def num_points_scored(player_name)
-  new_game = game_hash.collect do |location, team_data|# presents game_hash -> starts @ :home (i.e. team_data)
-    if team_data[:players][player_name]#if team_data value is :players -> chain p_n
-       return team_data[:players][player_name][:points]#then rt (thus halt) just-> t-d(is a hash)>[appro_arg][(s)] -> returns value!
-    end
+ found_player = all_players.find do |player_name|
+    player_name == game_hash[:players]
   end
+  
+  found_player[:points]
 end
 
 def shoe_size(player_name)
