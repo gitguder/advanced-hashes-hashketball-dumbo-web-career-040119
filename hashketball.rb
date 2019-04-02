@@ -189,14 +189,3 @@ def big_shoe_rebounds
   rebounds
 end
 
-def find_by_number(num)
-  game_hash.each do |location, team_data|
-    team_data[:players].each do |name, stats|
-      if num == stats[:number]
-        p name
-      end
-    end
-  end
-end
-
-find_by_number(33)
